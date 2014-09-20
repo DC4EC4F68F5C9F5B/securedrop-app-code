@@ -10,10 +10,10 @@ class FlaskConfig(object):
 # sessions can't be confused.
 # TODO consider using salts instead: http://pythonhosted.org//itsdangerous/#the-salt
 class SourceInterfaceFlaskConfig(FlaskConfig):
-    SECRET_KEY = '{{ source_secret_key }}'
+    SECRET_KEY = '{{ source_secret_key.stdout }}'
 
 class JournalistInterfaceFlaskConfig(FlaskConfig):
-    SECRET_KEY = '{{ journalist_secret_key }}'
+    SECRET_KEY = '{{ journalist_secret_key.stdout }}'
 
 # These files are in the same directory as config.py. Use absolute paths to
 # avoid potential problems with the test runner - otherwise, you have to be in
@@ -30,18 +30,18 @@ JOURNALIST_PIDFILE = "/tmp/journalist.pid"
 SOURCE_PIDFILE = "/tmp/source.pid"
 
 # "head -c 32 /dev/urandom | base64" for constructing public ID from source codename
-SCRYPT_ID_PEPPER = '{{ scrypt_id_pepper }}'
+SCRYPT_ID_PEPPER = '{{ scrypt_id_pepper.stdout }}'
 # "head -c 32 /dev/urandom | base64" for stretching source codename into GPG passphrase
-SCRYPT_GPG_PEPPER = '{{ scrypt_gpg_pepper }}'
+SCRYPT_GPG_PEPPER = '{{ scrypt_gpg_pepper.stdout }}'
 SCRYPT_PARAMS = dict(N=2**14, r=8, p=1)
 
 # Fingerprint of the public key to use for encrypting submissions
 # Defaults to test_journalist_key.pub, which is used for development and testing
-JOURNALIST_KEY = '{{ journalist_key }}'
+JOURNALIST_KEY = '{{ securedrop_app_gpg_fingerprint }}'
 
 # Directory where SecureDrop stores the database file, GPG keyring, and
 # encrypted submissions.
-SECUREDROP_ROOT = '{{ securedrop_root }}'
+SECUREDROP_ROOT = '{{ securedrop_data }}'
 
 # Modify configuration for alternative environments
 env = os.environ.get('SECUREDROP_ENV') or 'prod'
