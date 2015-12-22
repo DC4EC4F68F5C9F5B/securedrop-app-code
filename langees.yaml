@@ -1,0 +1,25 @@
+available_languages:
+ - en
+ - ru
+
+submit_first_time_caption:
+  en: 'If this is your first time submitting documents to journalists, start here.'
+  ru: 'Если это Ваша первая отправка документов журналистам, начните здесь.'
+submit_first_time:
+  en: 'Submit documents for the first time'
+  ru: 'Отправить документы в первый раз'
+submit_docs_button:
+  en: 'Submit Documents'
+  ru: 'Отправить Документы'
+already_submit_question:
+  en: 'Already submitted something?'
+  ru: 'Уже что-то отправили?'
+already_submit_caption:
+  en: 'If you have already submitted documents in the past, log in here to check for responses.'
+  ru: 'Если Вы уже отправляли документы в прошлом, зайдите здесь для просмотра ответов.'
+check_response_button:
+  en: 'Check for a response'
+  ru: 'Проверить ответы'
+bugs_disclaimer:
+  en: 'Like all software, SecureDrop may contain security bugs. Use at your own risk. Powered by SecureDrop'
+  ru: 'Также как и другое ПО, SecureDrop может содержать ошибки безопасности. Используйте на свой риск. Используется SecureDrop версии'
