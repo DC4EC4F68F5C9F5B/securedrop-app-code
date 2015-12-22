@@ -23,6 +23,7 @@ import store
 import template_filters
 from db import db_session, Source, Submission, Reply, get_one_or_else
 from request_that_secures_file_uploads import RequestThatSecuresFileUploads
+import yaml
 from jinja2 import evalcontextfilter
 
 import logging
@@ -40,6 +41,9 @@ assets = Environment(app)
 # take longer than an hour over Tor, we increase the valid window to 24h.
 app.config['WTF_CSRF_TIME_LIMIT'] = 60 * 60 * 24
 CsrfProtect(app)
+
+with open('langees.yaml','r') as f:
+    app.jinja_env.globals['langees'] = yaml.load(f)
 
 app.jinja_env.globals['version'] = version.__version__
 if getattr(config, 'CUSTOM_HEADER_IMAGE', None):
