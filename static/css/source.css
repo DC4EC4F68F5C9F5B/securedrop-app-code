@@ -64,10 +64,13 @@ a.plain:hover {
   position: relative;
   margin: 15px auto;
   width: 980px;
-  display: none;
 }
 
-.content:target {
+.langified {
+    display: none;
+}
+
+.langified:target {
     display: block;
 }
 
