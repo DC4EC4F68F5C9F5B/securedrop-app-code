@@ -83,3 +83,5 @@ TEMP_DIR = os.path.join(SECUREDROP_DATA_ROOT, "tmp")
 DATABASE_ENGINE = 'sqlite'
 DATABASE_FILE = os.path.join(SECUREDROP_DATA_ROOT, 'db.sqlite')
 
+SOURCE_DEFAULT_LANG = 'en'
+

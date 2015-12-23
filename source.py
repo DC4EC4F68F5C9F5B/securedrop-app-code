@@ -45,6 +45,8 @@ CsrfProtect(app)
 with open('langees.yaml','r') as f:
     app.jinja_env.globals['langees'] = yaml.load(f)
 
+app.jinja_env.globals['source_default_lang'] = config.SOURCE_DEFAULT_LANG
+
 app.jinja_env.globals['version'] = version.__version__
 if getattr(config, 'CUSTOM_HEADER_IMAGE', None):
     app.jinja_env.globals['header_image'] = config.CUSTOM_HEADER_IMAGE

@@ -12,6 +12,17 @@
       "js/libs/jquery-2.1.1.min.js", "js/source.js" %}
       <script type="javascript" src="{{ ASSET_URL }}"></script>
     {% endassets %}
+
+    <style>
+        .langified, .langified:target ~ #lang\={{ source_default_lang }} {
+            display: none;
+        }
+
+        #lang\={{ source_default_lang }} , .langified:target {
+            display: block;
+        }
+    </style>
+
   </head>
   <body>
     {% for lang in langees['available_languages'] %}

@@ -72,15 +72,6 @@ a.plain:hover {
   width: 980px;
 }
 
-.langified {
-    display: none;
-}
-
-.langified:target {
-    display: block;
-}
-
-
 .document-actions {
   margin-bottom: 20px;
   text-align: left;
