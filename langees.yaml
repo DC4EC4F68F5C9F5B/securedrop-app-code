@@ -1,6 +1,6 @@
 available_languages:
- - en
- - ru
+  en: 'English'
+  ru: 'Русский'
 
 submit_first_time_caption:
   en: 'If this is your first time submitting documents to journalists, start here.'
@@ -23,3 +23,7 @@ check_response_button:
 bugs_disclaimer:
   en: 'Like all software, SecureDrop may contain security bugs. Use at your own risk. Powered by SecureDrop'
   ru: 'Также как и другое ПО, SecureDrop может содержать ошибки безопасности. Используйте на свой риск. Используется SecureDrop версии'
+
+tbb_three_steps:
+  en: 'You appear to be using the Tor Browser. You can disable Javascript in 3 easy steps!'
+  ru: ''

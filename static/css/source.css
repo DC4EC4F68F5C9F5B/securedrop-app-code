@@ -11,6 +11,12 @@
   0% { opacity: 1; } 98% { opacity: 1; } 100% { opacity: 0; }
 } 
 
+
+@font-face {
+      font-family: 'Panton';
+      src: url('../fonts/panton-bold.woff') format('woff');
+    }
+
 html {
   animation: fadeout 120s;
   -webkit-animation: fadeout 120s;
@@ -31,7 +37,7 @@ html:hover {
 }
 
 body {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "Panton", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
   padding: 0px;
   margin: 0px;
@@ -73,6 +79,7 @@ a.plain:hover {
 .langified:target {
     display: block;
 }
+
 
 .document-actions {
   margin-bottom: 20px;

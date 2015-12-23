@@ -4,31 +4,50 @@
     <meta charset="utf-8">
     <title>SecureDrop | Protecting Journalists and Sources</title>
     {% assets filters="cssmin", output="gen/source.css",
-      "css/normalize.css", "css/source.css", "css/font-awesome.css" %}
+      "css/normalize.css", "css/source.css", "css/font-awesome.css",
+      "css/pure-min.css" %}
       <link rel="stylesheet" href="{{ ASSET_URL }}" />
     {% endassets %}
     <link rel="icon" type="image/png" href="/static/i/favicon.png" >
     {% block extrahead %}{% endblock %}
   </head>
   <body>
+    {% for lang in langees['available_languages'] %}
+    <div class="langified" id="lang={{ lang }}">
     {% include 'banner_warning_flashed.html' %}
 
     <div class="content">
       {% block header %}
       <div id="header">
-        <a href="{% if 'logged_in' in session %}{{ url_for('lookup') }}{% else %}{{ url_for('index') }}{% endif %}"><img src="/static/i/{{ header_image }}" class="logo small" alt="SecureDrop" width="250px"></a>
+          <a href="{% if 'logged_in' in session %}{{ url_for('lookup') }}{% else %}{{ url_for('index') }}{% endif %}#lang={{ lang }}"><img src="/static/i/{{ header_image }}" class="logo small" alt="SecureDrop" width="250px"></a>
         {% if use_custom_header_image %}
         <div class="powered">
           Powered by<br/>
           <img src="/static/i/securedrop_small.png" alt="SecureDrop">
         </div>
         {% endif %}
+          <div class="pure-menu pure-menu-horizontal langselector">
+              <ul class="pure-menu-list">
+                  <li class="pure-menu-item pure-menu-selected pure-menu-has-children pure-menu-allow-hover">
+                      <a class="pure-menu-link" href="#lang={{ lang }}">{{ langees['available_languages'][lang] }}</a>
+                      <ul class="pure-menu-children">
+                      {% for l in langees['available_languages'] %}
+                      {% if l != lang %}
+                      <li class="pure-menu-item">
+                              <a class="pure-menu-link" href="#lang={{ l }}">{{ langees['available_languages'][l] }}</a>
+                          </li>
+                      {% endif %}
+                      {% endfor %}
+                      </ul>
+                  </li>
+              </ul>
+          </div>
       </div>
       {% endblock %}
 
       <div class="panel selected">
 	{% if 'logged_in' in session %}
-	<a href="{{ url_for('logout') }}" class="btn pull-right" id="logout">Log Out</a>
+	<a href="{{ url_for('logout') }}#lang=en" class="btn pull-right" id="logout">Log Out</a>
 	{% endif %}
         <hr class="no-line" />
 
@@ -42,6 +61,9 @@
       </footer>
       {% endblock %}
     </div>
+    
+    </div>
+    {% endfor %}
   </body>
 </html>
 
